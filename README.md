@@ -31,7 +31,7 @@ Fashion E-commerce Website
 
 Add your used technologies here, for example:
 
-- Frontend: React / Angular / HTML / CSS / JavaScript
-- Backend: Spring Boot / Node.js
+- Frontend: React / Fluter / HTML / CSS / JavaScript
+- Backend: Spring Boot 
 - Database: PostgreSQL / MySQL
 - Authentication: JWT / OAuth
