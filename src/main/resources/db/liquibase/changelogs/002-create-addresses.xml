@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+    
+<changeSet id="002-create-addresses.xml" author="MohamedElshoura">
+    <createTable tableName="addresses">
+        <column name="id" type="BIGSERIAL">
+            <constraints nullable="false"  primaryKey="true" primaryKeyName="pk_addresses"/>
+        </column>
+        <column name="user_id" type="BIGINT">
+            <constraints nullable="false"
+                         foreignKeyName="fk_addresses_users" references="users(id)"/>
+        </column>
+
+        <column name="country" type="VARCHAR(100)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="city" type="VARCHAR(100)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="street" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="zip_code" type="VARCHAR(20)"/>
+
+        <column name="governorate" type="VARCHAR(20)"/>
+
+        <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="update_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+            <constraints nullable="true"/>
+        </column>
+
+    </createTable>
+    <rollback>
+        <dropTable tableName="addresses" />
+    </rollback>
+</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="022-insert-colors" author="MohamedElshoura">
+
+        <insert tableName="colors">
+            <column name="name" value="black"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="white"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="red"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="blue"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="green"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="yellow"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="gray"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="orange"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="purple"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="pink"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="brown"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="beige"/>
+        </insert>
+
+        <insert tableName="colors">
+            <column name="name" value="navy"/>
+        </insert>
+
+        <rollback>
+            <delete tableName="colors">
+                <where>
+                    name IN (
+                    'black','white','red','blue','green','yellow','gray',
+                    'orange','purple','pink','brown','beige','navy'
+                    )
+                </where>
+            </delete>
+        </rollback>
+
+    </changeSet>
+</databaseChangeLog>

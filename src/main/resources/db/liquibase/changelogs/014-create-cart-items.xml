@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="012-create-cart-items" author="MohamedElshoura">
+        <createTable tableName="cart_items">
+
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_cart_items" nullable="false"/>
+            </column>
+
+            <column name="cart_id" type="BIGINT">
+                <constraints nullable="false" unique="true" foreignKeyName="fk-cart-items-carts" references="carts(id)"/>
+            </column>
+
+            <column name="variant_id" type="BIGINT">
+<constraints nullable="false" foreignKeyName="fk-cart-items-product-variants" references="product_variants(id)"/>
+            </column>
+
+<column name="quantity" type="INT" defaultValueNumeric="1" >
+    <constraints nullable="false" checkConstraint="quantity > 0"/>
+</column>
+
+        </createTable>
+        <addUniqueConstraint
+                tableName="cart_items"
+                columnNames="cart_id,variant_id"
+                constraintName="uk_cart_items_cart_variant"/>
+
+<rollback>
+    <dropTable tableName="cart_items"/>
+</rollback>
+
+    </changeSet>
+</databaseChangeLog>

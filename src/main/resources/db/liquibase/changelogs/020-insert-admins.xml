@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="020-insert-admins" author="MohamedElshoura">
+        <insert tableName="users">
+            <column name="first_name" value="Mohamed"/>
+            <column name="last_name" value="Elshoura"/>
+            <column name="email" value="mohamed_elshoura@lokit.com"/>
+            <column name="password" value="$2a$10$gx0Iuv0EfGUscFrg6j150envhsD1Wk6ZL.XNpkE2x4nkXpefeIpIy"/>
+            <column name="phone" value="01551639873"/>
+            <column name="role" value="ADMIN"/>
+            <column name="enabled" value="true"/>
+            <column name="email_verified" value="true"/>
+
+        </insert>
+
+        <insert tableName="users">
+            <column name="first_name" value="Mohamed"/>
+            <column name="last_name" value="Elshoura"/>
+            <column name="email" value="admins@lokit.com"/>
+            <column name="password" value="$2a$10$gx0Iuv0EfGUscFrg6j150envhsD1Wk6ZL.XNpkE2x4nkXpefeIpIy"/>
+            <column name="phone" value="01551639873"/>
+            <column name="role" value="ADMIN"/>
+            <column name="enabled" value="true"/>
+            <column name="email_verified" value="true"/>
+
+        </insert>
+
+
+        <rollback>
+            <delete tableName="users">
+                <where>email='lokit2026@gmail.com'</where>
+            </delete>
+
+            <delete tableName="users">
+                <where>email='lokit2026@gmail.com'</where>
+            </delete>
+
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

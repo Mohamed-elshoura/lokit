@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="005-create-products" author="MohamedElshoura">
+        <createTable tableName="products">
+
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_products" nullable="false"/>
+            </column>
+
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="TEXT"/>
+
+            <column name="brand_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_products_brands" references="brands(id)"/>
+            </column>
+
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_products_categories" references="categories(id)"/>
+            </column>
+
+            <column name="department_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_products_departments"
+                             references="departments(id)"/>
+            </column>
+
+            <column name="material_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_products_materials"
+                             references="materials(id)"/>
+            </column>
+
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+
+        <rollback>
+            <dropTable tableName="products" />
+        </rollback>
+    </changeSet>     
+    </databaseChangeLog>

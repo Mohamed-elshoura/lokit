@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation=
+                "http://www.liquibase.org/xml/ns/dbchangelog
+                 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <include file="changelogs/001-create-users.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/002-create-addresses.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/003-create-brands.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/004-create-categories.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/005-create-department.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/006-create-material.xml" relativeToChangelogFile="true"/>
+
+    <include file="changelogs/007-create-products.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/008-create-size.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/009-create-colors.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/010-create-product-images.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/011-create-product-variants.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/012-create-reviews.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/013-create-carts.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/014-create-cart-items.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/015-create-wishlist-items.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/016-create-orders.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/017-create-order-items.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/018-create-email-verification-tokens.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/019-create-password_reset_tokens.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/020-insert-admins.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/021-insert-sizes.xml" relativeToChangelogFile="true" />
+
+    <include file="changelogs/022-insert-colors.xml" relativeToChangelogFile="true" />
+
+</databaseChangeLog>

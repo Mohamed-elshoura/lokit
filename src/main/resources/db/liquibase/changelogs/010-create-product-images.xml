@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="006-create-product-images" author="MohamedElshoura">
+        <createTable tableName="product_images">
+
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_product_images" nullable="false"/>
+            </column>
+
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_product_images_product"
+                             references="products(id)"/>
+            </column>
+
+            <column name="image_url" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="is_main" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <createIndex tableName="product_images" indexName="idx_product_images_product_id">
+            <column name="product_id"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="product_images"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

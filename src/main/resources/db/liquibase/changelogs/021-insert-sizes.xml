@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="021-insert-sizes" author="MohamedElshoura">
+
+<insert tableName="sizes">
+    <column name="name"  value="xxsmall"/>
+</insert>
+
+        <insert tableName="sizes">
+            <column name="name" value="xsmall"/>
+        </insert>
+
+        <insert tableName="sizes">
+            <column name="name" value="small"/>
+        </insert>
+
+        <insert tableName="sizes">
+            <column name="name" value="medium"/>
+        </insert>
+
+        <insert tableName="sizes">
+            <column name="name" value="large"/>
+        </insert>
+
+        <insert tableName="sizes">
+            <column name="name" value="xlarge"/>
+        </insert>
+
+        <insert tableName="sizes">
+            <column name="name" value="xxlarge"/>
+        </insert>
+
+        <rollback>
+            <delete tableName="sizes">
+                <where>name IN ('xxsmall','xsmall','small','medium','large','xlarge','xxlarge')</where>
+            </delete>
+        </rollback>
+
+    </changeSet>
+</databaseChangeLog>
