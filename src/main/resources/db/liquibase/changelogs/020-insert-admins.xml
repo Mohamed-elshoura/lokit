@@ -33,11 +33,11 @@
 
         <rollback>
             <delete tableName="users">
-                <where>email='lokit2026@gmail.com'</where>
+                <where>email='admins@lokit.com'</where>
             </delete>
 
             <delete tableName="users">
-                <where>email='lokit2026@gmail.com'</where>
+                <where>email='mohamed_elshoura@lokit.com"'</where>
             </delete>
 
         </rollback>

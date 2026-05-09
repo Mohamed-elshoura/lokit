@@ -50,13 +50,13 @@ public class SecurityConfig {
                         .requestMatchers("/variants/**").permitAll()
                         .requestMatchers("/product-images/**").permitAll()
 
-                        // User APIs
-                        .requestMatchers("/orders/**").hasRole("USER")
-                        .requestMatchers("/checkout/**").hasRole("USER")
-                        .requestMatchers("/cart/**").hasRole("USER")
-                        .requestMatchers("/wishlist/**").hasRole("USER")
-                        .requestMatchers("/addresses/**").hasRole("USER")
-                        .requestMatchers("/account/**").hasRole("USER")
+                        // Customer APIs
+                        .requestMatchers("/orders/**").hasRole("CUSTOMER")
+                        .requestMatchers("/checkout/**").hasRole("CUSTOMER")
+                        .requestMatchers("/cart/**").hasRole("CUSTOMER")
+                        .requestMatchers("/wishlist/**").hasRole("CUSTOMER")
+                        .requestMatchers("/addresses/**").hasRole("CUSTOMER")
+                        .requestMatchers("/account/**").hasRole("CUSTOMER")
 
                         // Admin APIs
                         .requestMatchers("/admin/**").hasRole("ADMIN")
