@@ -3,6 +3,9 @@ package com.elshoura.lokit.controllers;
 import com.elshoura.lokit.models.dto.response.OrderResponse;
 import com.elshoura.lokit.security.CustomUserDetails;
 import com.elshoura.lokit.service.OrderService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,6 +16,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/orders")
 @RequiredArgsConstructor
+@Tag(name = "Orders")
+@SecurityRequirement(name = "bearerAuth")
 public class OrderController {
 
 
@@ -20,6 +25,7 @@ public class OrderController {
 
 
     @GetMapping
+    @Operation(summary = "Get current user orders")
     public ResponseEntity<List<OrderResponse>> getMyOrders(
             @AuthenticationPrincipal CustomUserDetails userDetails
     ) {
@@ -28,6 +34,7 @@ public class OrderController {
     }
 
     @GetMapping("/{orderId}")
+    @Operation(summary = "Get current user order by ID")
     public ResponseEntity<OrderResponse> getMyOrderById(
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @PathVariable Long orderId
@@ -36,6 +43,7 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getMyOrderById(userId, orderId));
     }
     @PatchMapping("/{orderId}/cancel")
+    @Operation(summary = "Cancel current user order")
     public ResponseEntity<OrderResponse> cancelMyOrder(
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @PathVariable Long orderId
