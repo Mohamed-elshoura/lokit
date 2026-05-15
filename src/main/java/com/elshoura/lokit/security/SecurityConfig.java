@@ -23,7 +23,8 @@ import java.util.List;
 @Configuration
 @EnableMethodSecurity
 @RequiredArgsConstructor
-public class SecurityConfig {
+public class
+SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
@@ -64,6 +65,7 @@ public class SecurityConfig {
                         .requestMatchers("/wishlist/**").hasRole("CUSTOMER")
                         .requestMatchers("/addresses/**").hasRole("CUSTOMER")
                         .requestMatchers("/account/**").hasRole("CUSTOMER")
+                        .requestMatchers("/ai/**").hasRole("CUSTOMER")
 
                         // Admin APIs
                         .requestMatchers("/admin/**").hasRole("ADMIN")
